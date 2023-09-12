@@ -11,3 +11,8 @@ FROM livros
 INNER JOIN autores ON livros.autor_id = autores.id
 WHERE nome = 'J.K. Rowling';
 
+SELECT alunos.nome, matriculas.curso
+FROM alunos
+INNER JOIN matriculas ON alunos.id = matriculas.aluno_id
+WHERE curso = 'Engenharia de Software';
+
