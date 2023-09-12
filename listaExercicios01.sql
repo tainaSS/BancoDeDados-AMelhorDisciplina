@@ -20,3 +20,8 @@ SELECT produto, SUM(receita) AS receita_total
 FROM vendas
 GROUP BY produto;
 
+SELECT autores.nome, COUNT(autor_id) AS livros_n
+FROM autores
+INNER JOIN livros ON autores.id = livros.autor_id
+GROUP BY autores.nome;
+
