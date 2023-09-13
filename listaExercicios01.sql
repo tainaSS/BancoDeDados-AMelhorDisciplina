@@ -30,3 +30,7 @@ FROM matriculas
 INNER JOIN alunos ON matriculas.aluno_id = alunos.id
 GROUP BY matriculas.curso;
 
+SELECT produto, AVG(receita) AS receita_media
+FROM vendas
+GROUP BY produto;
+
