@@ -75,5 +75,11 @@ WHERE id = (
     LIMIT 1
 );
 
+SELECT produto, SUM(receita) AS vendas_totais
+FROM vendas
+GROUP BY produto
+ORDER BY vendas_totais
+LIMIT 1;
+
 
 
