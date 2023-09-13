@@ -39,3 +39,9 @@ FROM vendas
 GROUP BY produto
 HAVING receita_total > 10000;
 
+SELECT autores.nome, COUNT(autor_id) AS livros
+FROM autores
+INNER JOIN livros ON autores.id = livros.autor_id
+GROUP BY autores.nome
+HAVING livros > 2;
+
