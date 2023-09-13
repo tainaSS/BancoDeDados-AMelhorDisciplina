@@ -45,3 +45,7 @@ INNER JOIN livros ON autores.id = livros.autor_id
 GROUP BY autores.nome
 HAVING livros > 2;
 
+SELECT autores.nome, livros.titulo
+FROM autores
+INNER JOIN livros ON autores.id = livros.autor_id;
+
