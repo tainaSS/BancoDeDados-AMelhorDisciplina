@@ -86,5 +86,11 @@ FROM alunos
 INNER JOIN matriculas ON alunos.id = matriculas.aluno_id
 GROUP BY alunos.nome;
 
+SELECT produto, COUNT(*) AS venda_total
+FROM vendas
+GROUP BY produto
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+
 
 
