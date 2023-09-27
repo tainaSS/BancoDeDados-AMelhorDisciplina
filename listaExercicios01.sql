@@ -188,3 +188,11 @@ BEGIN
     -- Esta stored procedure lista todos os autores no banco de dados.
     SELECT Nome, Sobrenome FROM Autor;
 END;
+
+CREATE PROCEDURE sp_LivrosESeusAutores()
+BEGIN
+    SELECT Livro.Titulo, CONCAT(Autor.Nome, ' ', Autor.Sobrenome) AS Autor
+    FROM Livro
+    JOIN Autor_Livro ON Livro.Livro_ID = Autor_Livro.Livro_ID
+    JOIN Autor ON Autor_Livro.Autor_ID = Autor.Autor_ID;
+END;
