@@ -92,5 +92,10 @@ GROUP BY produto
 ORDER BY COUNT(*) DESC
 LIMIT 1;
 
+CREATE PROCEDURE sp_ListarAutores()
+BEGIN
+    SELECT Nome, Sobrenome FROM Autor;
+END;
+
 
 
