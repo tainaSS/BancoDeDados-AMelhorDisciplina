@@ -135,4 +135,28 @@ BEGIN
     WHERE Ano_Publicacao <= ano;
 END;
 
+CREATE PROCEDURE sp_TitulosPorCategoria(IN categoriaNome VARCHAR(100))
+BEGIN
+    DECLARE done INT DEFAULT 0;
+    DECLARE titulo VARCHAR(255);
+    DECLARE cur CURSOR FOR
+        SELECT Livro.Titulo
+        FROM Livro
+        JOIN Categoria ON Livro.Categoria_ID = Categoria.Categoria_ID
+        WHERE Categoria.Nome = categoriaNome;
+    
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+    
+    OPEN cur;
+    
+    read_loop: LOOP
+        FETCH cur INTO titulo;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        SELECT titulo;
+    END LOOP;
+    
+    CLOSE cur;
+END;
 
